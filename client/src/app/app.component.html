@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="app-header">
+  <span class="nav-tool-items">
+    <a *ngIf="!accountService.user.id && !API.initialIsFetching" mat-button mat-raised-button routerLink="login" routerLinkActive="active">Log in</a>
+    <a *ngIf="!accountService.user.id && !API.initialIsFetching" mat-button mat-raised-button routerLink="registration" routerLinkActive="active">Register</a>
+    <button  (click)="logout()" *ngIf="!!accountService.user.id && !API.initialIsFetching" mat-raised-button>Logout {{accountService.user.login}}</button>
+ </span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,86 @@
+:host {
+  -webkit-box-shadow: 4px 6px 55px -11px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 4px 6px 55px -11px rgba(0, 0, 0, 0.46);
+  box-shadow: 4px 6px 55px -11px rgba(0, 0, 0, 0.46);
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    padding: 2rem;
+    width: 100%;
+    height: calc(100% - 68px);
+    font-family: 'Roboto', sans-serif;
+    grid-gap: 2vw;
+    margin: 0;
+    box-sizing: border-box;
+
+
+    div {
+      font-size: 2.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nameDay {
+      text-transform: uppercase;
+    }
+
+    .day {
+      .weekend {
+        color: red;
+      }
+
+      color: #5d5d5d;
+
+      .date {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .hasNote {
+        position: absolute;
+        top: 10px;
+        right: 15%;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: transparent;
+        background: radial-gradient(circle, rgb(255, 7, 7) 0%, rgb(203, 50, 50) 100%);
+        border: 1px solid #ad0000;
+        font-size: 10px;
+        color: #ffffff;
+        -webkit-box-shadow: 2px 2px 5px -1px rgb(0 0 0 / 46%);
+        -moz-box-shadow: 2px 2px 5px -1px rgb(0 0 0 / 46%);
+        box-shadow: 2px 2px 5px -1px rgb(0 0 0 / 46%);
+      }
+    }
+
+    .activeDay {
+      background-color: #006edd;
+      color: #d0d0d0;
+
+      .hasNote {
+        background: radial-gradient(circle, rgb(201, 197, 197) 0%, rgba(255, 255, 255, 1) 100%);
+        border: 1px solid white;
+        color: black;
+      }
+
+      .weekend {
+        color: white;
+      }
+    }
+
+    .currentDay {
+      font-weight: 900;
+    }
+
+  }
+
+
+}
+
+

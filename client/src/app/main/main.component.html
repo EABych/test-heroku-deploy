@@ -1,0 +1,8 @@
+<div *ngIf="API.initialIsFetching" class="container-spinner">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!API.initialIsFetching" class="container">
+  <app-calendar  *ngIf="!API.initialIsFetching"></app-calendar>
+  <app-note-form *ngIf="!API.initialIsFetching"></app-note-form>
+</div>
+

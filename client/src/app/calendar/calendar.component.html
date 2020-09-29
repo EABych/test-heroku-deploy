@@ -1,0 +1,35 @@
+<app-current-month></app-current-month>
+
+<div class="container">
+  <div
+    *ngFor="let day of dateService.weekKeys"
+    class="nameDay"
+  >
+    <div class="date">{{day}}</div>
+  </div>
+  <div
+    *ngFor="let day of dateService.month; index as i"
+    class="day"
+    [class.activeDay]="
+   (dateService.activeDate.value | moment: 'YYYYMMDD') === (day | dayToDbFormat)"
+    [class.currentDay]="(dateService.currentDate.value | moment: 'YYYYMMDD') ===
+   (day | dayToDbFormat)"
+    (click)="changeActiveDay(day)"
+  >
+    <div
+      class="date"
+      *ngIf="!!day"
+      [class.weekend]="(i % 7 === 0) || ((i+1) % 7 === 0)"
+    >
+      <div
+        *ngIf="!API.initialIsFetching && ((day | dayToDbFormat) | countNumberOfTasks)"
+        [class.hasNote]="!!((day | dayToDbFormat) | countNumberOfTasks)"
+      >
+        {{((day | dayToDbFormat) | countNumberOfTasks)}}
+      </div>
+      {{day}}
+    </div>
+  </div>
+
+</div>
+

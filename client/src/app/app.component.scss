@@ -1,0 +1,18 @@
+.container {
+  width: 90vw;
+  max-width: 90vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  margin-right: 20px;
+}
+
+.nav-tool-items{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}

@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+p {
+  margin: 0;
+  width: 200px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+i {
+  cursor: pointer;
+}

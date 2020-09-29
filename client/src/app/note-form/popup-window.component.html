@@ -1,0 +1,14 @@
+<div *ngIf="type">
+  <p>Are You sure?</p>
+  <button mat-stroked-button color="error" class="btn-block" (click)="deleteNote()">delete</button>
+</div>
+<div *ngIf="!type">
+  <form [formGroup]="checkoutForm" (ngSubmit)="editNote()" class="example-form">
+
+    <mat-form-field class="example-form-field">
+      <mat-label>Change text</mat-label>
+      <input matInput type="text" formControlName="value">
+    </mat-form-field>
+    <button [disabled]="(checkoutForm.value.value === data.value) || !checkoutForm.value.value.length" mat-stroked-button color="accent" class="btn-block" type="submit">Save</button>
+  </form>
+</div>

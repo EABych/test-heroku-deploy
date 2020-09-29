@@ -1,0 +1,41 @@
+<div class="container">
+  <p class="title">NOTES</p>
+  Organizer: <b>{{dateService.activeDate.value.format('Do MMMM YYYY')}}</b>
+  <hr>
+  <form [formGroup]="checkoutForm" (ngSubmit)="addNewNote()">
+    <mat-form-field class="example-full-width">
+      <input
+        id="text"
+        type="text"
+        formControlName="text"
+        placeholder="Create new note"
+        matInput
+      >
+    </mat-form-field>
+    <button mat-raised-button type="submit">Add note</button>
+  </form>
+  <mat-progress-bar *ngIf="API.isFetching" class="loadingBar" mode="buffer"></mat-progress-bar>
+
+  <div *ngIf="API.initialIsFetching">loading...</div>
+
+  <ul class="form"
+      *ngIf="!API.initialIsFetching && accountService.user.tasksList[(dateService.activeDate.value | moment: 'YYYYMMDD')] &&
+      ((dateService.activeDate.value | moment: 'YYYYMMDD') | countNumberOfTasks)">
+    <li
+      *ngFor="let note of (accountService.user.tasksList[(dateService.activeDate.value | moment: 'YYYYMMDD')] | keyvalue); index as i"
+    >
+      {{i + 1}}. {{note.value}}
+      <div>
+        <span class="material-icons" (click)="openDialog({key: note.key, type: 'edit', value: note.value})">edit</span>
+        <span class="material-icons"
+              (click)="openDialog({key: note.key, type: 'delete', value: ''})">delete_forever</span>
+      </div>
+    </li>
+  </ul>
+  <p
+    class="form"
+    *ngIf="!API.initialIsFetching && !accountService.user.tasksList[(dateService.activeDate.value | moment: 'YYYYMMDD')] ||
+   !accountService.objectKeys(accountService.user.tasksList[(dateService.activeDate.value | moment: 'YYYYMMDD')]).length">
+    There is no one note yet
+  </p>
+</div>
